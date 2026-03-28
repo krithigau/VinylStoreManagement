@@ -1,0 +1,51 @@
+.checkout-container {
+    padding: 40px;
+    max-width: 600px;
+    margin: 80px auto;
+    text-align: center;
+}
+
+.checkout-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    color: #e65100;
+}
+
+.confirm-btn {
+    width: 100%;
+    padding: 15px;
+    background: #e65100;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: 0.3s;
+}
+
+.confirm-btn:hover:not(:disabled) {
+    background: #bf360c;
+    transform: translateY(-2px);
+}
+
+.confirm-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}

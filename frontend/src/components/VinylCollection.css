@@ -1,0 +1,189 @@
+/* src/components/VinylCollection.css */
+
+.store-page {
+    background-color: #fdfaf5;
+    min-height: 100vh;
+    padding-bottom: 60px;
+}
+
+/* =========================================
+   1. HERO BANNER STYLES
+   ========================================= */
+.hero-banner {
+    height: 350px;
+    /* High-quality dark vinyl background */
+    background-image: url('https://images.unsplash.com/photo-1603048297172-c92544798d5e?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    margin-bottom: 50px;
+}
+
+/* Dark overlay to make the white text pop */
+.hero-banner::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.65);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    color: #ffffff;
+    max-width: 700px;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    font-family: serif;
+    letter-spacing: 1px;
+}
+
+.hero-content .highlight {
+    color: #e67e22; /* Orange highlight */
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    color: #dddddd;
+    line-height: 1.6;
+}
+
+/* =========================================
+   2. COLLECTION GRID STYLES
+   ========================================= */
+.collection-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-family: serif;
+    color: #222;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e67e22;
+    display: inline-block;
+}
+
+.loading-msg {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 50px;
+}
+
+.vinyl-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.vinyl-card {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.vinyl-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.vinyl-image-container {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    background-color: #f0f0f0;
+}
+
+.vinyl-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.vinyl-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.vinyl-title {
+    margin: 0 0 5px 0;
+    font-size: 1.2rem;
+    color: #111;
+    font-family: serif;
+    font-weight: 700;
+}
+
+.vinyl-artist {
+    margin: 0;
+    color: #888;
+    font-size: 0.9rem;
+    flex-grow: 1;
+}
+
+.vinyl-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.price-stock {
+    display: flex;
+    flex-direction: column;
+}
+
+.vinyl-price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #e67e22;
+}
+
+.vinyl-stock {
+    font-size: 0.85rem;
+    color: #888;
+    margin-top: 4px;
+}
+
+.low-stock {
+    color: #e74c3c;
+    font-weight: 600;
+}
+
+.add-to-cart-btn {
+    background-color: #e67e22;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.add-to-cart-btn:hover:not(:disabled) {
+    background-color: #d35400;
+}
+
+.add-to-cart-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}

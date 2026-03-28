@@ -1,0 +1,175 @@
+/* src/components/Cart.css */
+
+/* THE OVERLAY (Background dimming) */
+.cart-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dim the rest of the screen */
+    display: flex;
+    justify-content: flex-end; /* Push the cart panel to the right edge */
+    z-index: 1000;
+    visibility: hidden; /* Hide by default */
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+/* Toggled by the 'isOpen' prop in Cart.jsx */
+.cart-overlay.open {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* THE PANEL (The actual sidebar) */
+.cart-panel {
+    width: 380px; /* Fixed width for the sidebar */
+    max-width: 90%; /* Mobile friendly */
+    background: #ffffff;
+    height: 100%;
+    display: flex;
+    flex-direction: column; /* Stack header, content, footer vertically */
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+
+    /* Smooth slide-out/in animation */
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* When the overlay is open, slide the panel to 0 (visible) */
+.cart-overlay.open .cart-panel {
+    transform: translateX(0);
+}
+
+/* 1. CART HEADER (Matches your black bar) */
+.cart-header {
+    padding: 20px;
+    background: #111111; /* Or your exact header color */
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between; /* Pushes title left, close button right */
+    align-items: center;
+    font-family: serif; /* To match your 'Discover' font */
+}
+
+.cart-header h2 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    margin-right: -10px; /* Adjust click area */
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: #ff4d4d;
+}
+
+/* 2. CART CONTENT (The scrolling items area) */
+.cart-content {
+    flex: 1; /* This pushes the footer down and takes up available space */
+    overflow-y: auto; /* Adds scrollbar if many items */
+    padding: 25px 20px; /* Aligns text with header padding */
+}
+
+.empty-msg {
+    text-align: center;
+    color: #888;
+    margin-top: 40px;
+}
+
+/* 3. CART ITEMS */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee; /* Light divider */
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
+.cart-item-info h4 {
+    margin: 0 0 6px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.cart-item-info p {
+    margin: 0;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.remove-item {
+    background: none;
+    border: none;
+    color: #bbbbbb; /* Matches your gray bin icon */
+    cursor: pointer;
+    font-size: 1.3rem;
+    transition: color 0.2s;
+    padding: 5px;
+}
+
+.remove-item:hover {
+    color: #e74c3c;
+}
+
+/* 4. CART FOOTER (Fixed at the bottom) */
+.cart-footer {
+    padding: 20px;
+    background: #fdfdfd;
+    border-top: 2px solid #eee;
+    margin-top: auto; /* Safety push to bottom */
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #111;
+}
+
+.checkout-btn {
+    width: 100%;
+    padding: 16px;
+    background: #3ac174; /* Matches your Green color */
+    color: #ffffff;
+    border: none;
+    border-radius: 8px; /* Clean rounded corners */
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.checkout-btn:hover:not(:disabled) {
+    background: #2ea863; /* Darker green on hover */
+}
+
+.checkout-btn:active:not(:disabled) {
+    transform: scale(0.98); /* Small click effect */
+}
+
+.checkout-btn:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
